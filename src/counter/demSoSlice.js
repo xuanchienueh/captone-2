@@ -15,15 +15,15 @@ export const demSoSlice = createSlice({
     giam: (state) => {
       state.value1 -= 5;
     },
-    getLoaiNguoiDung: (state, actions) => {
-      state.loaiNguoiDung = actions.payload;
+    getLoaiNguoiDung: (state, { type, payload }) => {
+      console.log(payload);
+      state.loaiNguoiDung = payload;
     },
   },
 });
 
 export const getDSFilm = () => {
   return async (dispatch, getState) => {
-    console.log(getState());
     try {
       const { data, status } = await axios.get(
         "http://movieapi.cyberlearn.vn/api/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung"
