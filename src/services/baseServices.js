@@ -2,9 +2,6 @@ import axios from "axios";
 import { DOMAIN_API, TOKEN, TokenCybersoft } from "../utils/setting/config";
 
 export class baseServices {
-  constructor() {
-    super();
-  }
   get = (url) => {
     return axios({
       method: "GET",
@@ -40,7 +37,7 @@ export class baseServices {
     });
   };
 
-  delete = () => {
+  delete = (url) => {
     return axios({
       method: "DELETE",
       url: `${DOMAIN_API}/${url}`,

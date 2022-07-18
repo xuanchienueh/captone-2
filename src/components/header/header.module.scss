@@ -1,0 +1,15 @@
+.header {
+  :global {
+    .dropdown-item:active {
+      background-color: transparent;
+    }
+
+    .dropdown-toggle::after {
+      display: none;
+    }
+
+    .dropdown-menu {
+      right: 0;
+    }
+  }
+}
