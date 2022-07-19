@@ -76,7 +76,9 @@ function Header() {
                 Login
               </Link>
               <span> / </span>
-              <span>Sign up</span>
+              <Link to="/signup" className="text-reset">
+                Sign up
+              </Link>
             </div>
           )}
         </div>

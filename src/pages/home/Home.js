@@ -16,8 +16,9 @@ function Home() {
   useEffect(() => {
     dispatch(getListFilmsAction());
   }, []);
+
   return (
-    <div className={styles.homepage} style={{ height: "2000px" }}>
+    <div className={styles.homepage}>
       <Banner />
       <div className="xl:max-w-[1100px] mx-auto tabs-carousel">
         <Tabs defaultActiveKey="1" centered>

@@ -1,22 +1,52 @@
-import { useFormik } from "formik";
 import React from "react";
-import { useDispatch } from "react-redux";
-import { NavLink, useNavigate, Navigate } from "react-router-dom";
-import { userLoginAction } from "../../redux/manageUserReducer/actions";
-import { USER_LOGIN } from "../../utils/setting/config";
+import { Form, Input, Select, AutoComplete } from "antd";
+import "antd/dist/antd.css";
+
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
+import { MA_NHOM, USER_LOGIN } from "../../utils/setting/config";
+import { manageUserReducer } from "../../services/manageUserServices";
+const { Option } = Select;
 let infoUserLogined = localStorage.getItem(USER_LOGIN);
-function Login() {
-  const dispatch = useDispatch();
+
+const formItemLayout = {
+  labelCol: {
+    xs: { span: 24 },
+    sm: { span: 8 },
+  },
+  wrapperCol: {
+    xs: { span: 24 },
+    sm: { span: 16 },
+  },
+};
+
+const Signup = () => {
   const navigate = useNavigate();
-  const formik = useFormik({
-    initialValues: {
-      taiKhoan: "",
-      matKhau: "",
-    },
-    onSubmit: (values) => {
-      dispatch(userLoginAction(values, navigate));
-    },
-  });
+  const [form] = Form.useForm();
+
+  const onFinish = (values) => {
+    let submit = {
+      taiKhoan: values.taiKhoan,
+      matKhau: values.nhapLaiMatKhau,
+      email: values.email,
+      soDt: values.soDt,
+      maNhom: MA_NHOM,
+      hoTen: values.hoTen,
+    };
+    manageUserReducer
+      .userSignupService(submit)
+      .then((resolve) => {
+        alert("Sign up success!");
+        navigate("/login");
+      })
+      .catch((err) => {
+        let messageError = err?.response?.data?.content;
+        if (messageError) {
+          alert(messageError);
+        } else {
+          alert("Signup failt!");
+        }
+      });
+  };
 
   if (infoUserLogined) {
     return <Navigate to="/" replace={true} />;
@@ -26,7 +56,7 @@ function Login() {
     <div>
       <div className="lg:flex">
         <div className="lg:w-1/2 xl:max-w-screen-sm">
-          <div className="py-12 bg-indigo-100 lg:bg-white flex justify-center lg:justify-start lg:px-12">
+          <div className="py-8 bg-indigo-100 lg:bg-white flex justify-center lg:justify-start lg:px-12">
             <div className="cursor-pointer flex items-center">
               <div
                 onClick={() => navigate("/")}
@@ -40,75 +70,159 @@ function Login() {
               </div>
             </div>
           </div>
-          <div className="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl">
+          <div className="mt-0 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl">
             <h2
               className="text-center text-4xl text-indigo-900 font-display font-semibold lg:text-left xl:text-5xl
-          xl:text-bold"
+              xl:text-bold"
             >
-              Đăng nhập
+              Đăng ký
             </h2>
             <div className="mt-12">
-              <form onSubmit={formik.handleSubmit}>
-                <div>
-                  <label
-                    htmlFor="taiKhoan"
-                    className="text-sm font-bold text-gray-700 tracking-wide"
-                  >
-                    Tài khoản
-                  </label>
-                  <input
-                    className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
-                    name="taiKhoan"
-                    type="text"
-                    onChange={formik.handleChange}
-                    value={formik.values.taiKhoan}
-                    placeholder="Nhập vào tài khoản!"
-                  />
-                </div>
-                <div className="mt-8">
-                  <div className="flex justify-between items-center">
-                    <label
-                      htmlFor="matKhau"
-                      className="text-sm font-bold text-gray-700 tracking-wide"
-                    >
-                      Mật khẩu
-                    </label>
-                    <div>
-                      <a
-                        className="text-xs font-display font-semibold text-indigo-600 hover:text-indigo-800
-                              cursor-pointer"
-                      >
-                        Quên mật khẩu?
-                      </a>
-                    </div>
-                  </div>
-                  <input
-                    className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
-                    type="text"
-                    name="matKhau"
-                    onChange={formik.handleChange}
-                    value={formik.values.matKhau}
-                    placeholder="Nhập vào mật khẩu!"
-                  />
-                </div>
-                <div className="mt-10">
+              <Form
+                {...formItemLayout}
+                form={form}
+                name="register"
+                onFinish={onFinish}
+                onFinishFailed={({ values, errorFields, outOfDate }) => {
+                  console.log("dữ liệu submit không đúng", values);
+                }}
+                initialValues={{
+                  maLoaiNguoiDung: "QuanTri",
+                }}
+                scrollToFirstError
+              >
+                <Form.Item
+                  name="email"
+                  label="E-mail"
+                  rules={[
+                    {
+                      type: "email",
+                      message: "Email không hợp lệ!",
+                    },
+                    {
+                      required: true,
+                      message: "Vui lòng nhập email của bạn!",
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+
+                <Form.Item
+                  name="password"
+                  label="Mật khẩu"
+                  tooltip="Mật khẩu ít nhất có 1 ký tự viết hoa, 1 ký tự viết thường, 1 ký tự số, 1 ký tự đặc biệt và dài từ 8 đến 10 ký tự!"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Vui lòng nhập mật khẩu của bạn!",
+                    },
+                    {
+                      pattern:
+                        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/,
+                      message: "Mật khẩu không đủ mạnh!",
+                    },
+                  ]}
+                  hasFeedback
+                >
+                  <Input.Password />
+                </Form.Item>
+
+                <Form.Item
+                  name="nhapLaiMatKhau"
+                  label="Nhập lại mật khẩu"
+                  dependencies={["password"]}
+                  hasFeedback
+                  rules={[
+                    {
+                      required: true,
+                      message: "Vui lòng nhập lại mật khẩu!",
+                    },
+                    ({ getFieldValue }) => ({
+                      validator(_, value) {
+                        if (!value || getFieldValue("password") === value) {
+                          return Promise.resolve();
+                        }
+
+                        return Promise.reject(new Error("Mật khẩu nhập lại không đúng!"));
+                      },
+                    }),
+                  ]}
+                >
+                  <Input.Password />
+                </Form.Item>
+
+                <Form.Item
+                  name="taiKhoan"
+                  label="Tài khoản"
+                  tooltip="Tài khoản không chứa dấu và ký tự đặc biệt!"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Vui lòng nhập tài khoản của bạn!",
+                      whitespace: true,
+                    },
+                    {
+                      pattern: /^[a-zA-Z0-9]*$/,
+                      message: "Tài khoản không chứa dấu và ký tự đặc biệt!",
+                      whitespace: true,
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+
+                <Form.Item
+                  name="soDt"
+                  label="Số điện thoại"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Vui lòng nhập số điện thoại của bạn!",
+                    },
+                    {
+                      pattern: /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/,
+                      message: "Số điện thoại không đúng!",
+                    },
+                  ]}
+                >
+                  <Input maxLength={10} style={{ width: "100%" }} />
+                </Form.Item>
+
+                <Form.Item
+                  name="hoTen"
+                  label="Họ và tên"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Trường này không được để trống!",
+                    },
+                  ]}
+                >
+                  <AutoComplete onChange={() => {}} placeholder="Họ và tên">
+                    <Input />
+                  </AutoComplete>
+                </Form.Item>
+
+                <div className="w-full flex justify-center">
                   <button
                     type="submit"
-                    className="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
-                      font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
-                      shadow-lg text-2xl"
+                    className="bg-indigo-500 text-gray-100 p-3 w-1/3 rounded-full tracking-wide
+                          font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
+                          shadow-lg"
                   >
-                    Đăng nhập
+                    Đăng ký
                   </button>
                 </div>
-              </form>
+              </Form>
+
               <div className="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
-                Bạn chưa có tài khoản?{" "}
+                Bạn đã có tài khoản?{" "}
                 <NavLink
-                  to="/signup"
+                  to="/login"
                   className="cursor-pointer text-indigo-600 hover:text-indigo-800"
                 >
-                  Đăng ký
+                  Đăng nhập
                 </NavLink>
               </div>
             </div>
@@ -312,6 +426,6 @@ function Login() {
       </div>
     </div>
   );
-}
+};
 
-export default Login;
+export default Signup;
