@@ -1,0 +1,14 @@
+.banner {
+  :global {
+    .carousel-item {
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: cover;
+      height: 800px;
+      width: 100wh;
+    }
+    .carousel-indicators {
+      display: none;
+    }
+  }
+}
