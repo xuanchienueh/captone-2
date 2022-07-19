@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { USER_LOGIN } from "../../utils/setting/config";
 import styles from "./header.module.scss";
 
 function Header() {
@@ -49,7 +48,7 @@ function Header() {
           {Object.values(infoUserLogined).length > 0 ? (
             <div className="text-white font-weight-normal text-xl dropdown">
               <h3
-                className="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle text-white"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
