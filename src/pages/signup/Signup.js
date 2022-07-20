@@ -3,10 +3,10 @@ import { Form, Input, Select, AutoComplete } from "antd";
 import "antd/dist/antd.css";
 
 import { Navigate, NavLink, useNavigate } from "react-router-dom";
-import { MA_NHOM, USER_LOGIN } from "../../utils/setting/config";
+import { MA_NHOM } from "../../utils/setting/config";
 import { manageUserReducer } from "../../services/manageUserServices";
+import { useSelector } from "react-redux";
 const { Option } = Select;
-let infoUserLogined = localStorage.getItem(USER_LOGIN);
 
 const formItemLayout = {
   labelCol: {
@@ -20,6 +20,7 @@ const formItemLayout = {
 };
 
 const Signup = () => {
+  const { infoUserLogined } = useSelector((state) => state.manageUserReducer);
   const navigate = useNavigate();
   const [form] = Form.useForm();
 
@@ -48,7 +49,7 @@ const Signup = () => {
       });
   };
 
-  if (infoUserLogined) {
+  if (infoUserLogined.taiKhoan) {
     return <Navigate to="/" replace={true} />;
   }
 
