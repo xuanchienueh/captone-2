@@ -12,9 +12,9 @@ function Header() {
   return (
     <header className={styles.header}>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-5">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           <img src="./img/logo.png" alt="logo" width={70} />
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -58,12 +58,12 @@ function Header() {
                 Welcome {infoUserLogined.hoTen}
               </h3>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="#">
+                <Link className="dropdown-item" to="/profile">
                   Change password
-                </a>
-                <a className="dropdown-item" href="#">
-                  History
-                </a>
+                </Link>
+                <Link className="dropdown-item" to="/profile/history">
+                  History booking
+                </Link>
                 <div className="dropdown-divider" />
                 <span role="button" className="dropdown-item" onClick={handleLogout}>
                   Log out
