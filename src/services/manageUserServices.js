@@ -6,6 +6,10 @@ class userServices extends baseServices {
   }
 
   userLoginService = (dataLogin) => this.post(`QuanLyNguoiDung/DangNhap`, dataLogin);
+
+  userSignupService = (dataSignup) => {
+    return this.post(`QuanLyNguoiDung/DangKy`, dataSignup);
+  };
 }
 
 export const manageUserReducer = new userServices();
