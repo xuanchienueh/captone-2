@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Banner from "../../components/banner/Banner";
 import { getListFilmsAction } from "../../redux/manageFilmsReducer/actions";
 import ListFilm from "../../components/listFilm/ListFilms";
+import FilmSchedule from "../../components/filmSchedule/FilmSchedule";
 import styles from "./home.module.scss";
 
 const { TabPane } = Tabs;
@@ -30,6 +31,7 @@ function Home() {
           </TabPane>
         </Tabs>
       </div>
+      <FilmSchedule />
     </div>
   );
 }
