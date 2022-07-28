@@ -34,7 +34,7 @@ const FilmDetail = function () {
                     <div className={styles.content}>
                         <h1>{film.tenPhim}</h1>
                         <h2>{film.ngayKhoiChieu}</h2>
-                        <h3>Điểm : {film.danhGia}</h3>
+                        <h3>Điểm : {film.danhGia} ★ </h3>
                         <p>{film.moTa}</p>
                     </div>
                 </div>

@@ -1,37 +1,117 @@
-
 .myContainer {
-    margin: 0 auto;
-    max-width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    max-width: 1700px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: #f5f5f5;
+  
 }
 
-.theaterList {
-    background: #f5f5f5;
+.logo {
+    padding: 20px;
+    border-bottom: 0.5px solid black;
+    opacity: 0.5;
+    width: 130px;
+    flex: 1 1 100px;
+}
+
+.logo img {
+    width: 100%;
+}
+
+
+.logo_active {
+    background: #FA8072;
+    opacity: 1;
+}
+
+
+.brandList {
+    flex: 1 1 800px;
+    border: 1px solid black;
+}   
+
+.cumRap {
+    display: flex;
+    padding: 20px;
+    border: 1px solid black;
+    align-items: center;
+    opacity: 0.5;
+}
+
+.cumRap_active {
+    background: #FA8072;
+    opacity: 1;
+}
+
+.cumRap_active h1 {
+    color: #f5f5f5;
+}
+
+.cumRap img {
+    max-width: 100px;
+}
+
+.info {
+    padding: 0 25px;
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+}
+ 
+.movieContainer {
+    width: 100%;
+    flex: 1 1 auto;
+}
+
+.movie {
+    border-bottom: 1px solid black;
+    padding: 20px;
+    width: 100%;
+}
+
+
+
+.time {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    cursor: pointer;
-    border: 1px solid black;
-    margin: 40px 0;
 }
 
-.BrandTheater {
-    margin: 40px 40px;
-    border: 1px solid black;
-    
-}
-
-
-.BranchTheater:hover {
-    transform: scale(1.1);
-}
-
-.BranchTheater {
-    margin: 40px 10px;
-    border: 1px solid black;
-}
-
-.CumRap
+.title
 {
     display: flex;
-    border: 1px solid black;
+}
+
+.title img
+{
+    height: 70px;
+    width: 70px;
+}
+
+.title_info h1
+{
+    padding-top: 10px;
+    padding-left: 20px;
+    font-size: 25px;
+    color: black;
+}
+
+
+.title_info h2
+{
+    font-size: 20px;
+    color: red;
+    padding-left: 20px;
+}
+
+.btn {
+    margin: 20px 10px;
+    padding: 10px;
+    border: 1px solid teal;
+    background: green;
+}
+
+.btn a {
+    color: aliceblue;
 }
