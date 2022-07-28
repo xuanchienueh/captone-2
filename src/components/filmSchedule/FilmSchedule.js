@@ -1,7 +1,6 @@
 import {useState, useEffect} from "react";
 import {manageFilmServices} from "../../services/manageFilmServices";
-import BrandTheaterList from "./BrandTheaterList";
-import styles from "./index.module.css"
+import styles from "./index.module.css";
 
 const FilmSchedule = function() {
     const [BrandList, setBrandList] = useState([]);
@@ -9,7 +8,11 @@ const FilmSchedule = function() {
     const [activeBranch, setActiveBranch] = useState(null);
     const loadData = async function() {
         const result = await manageFilmServices.getFilmScheduleService();
-        setBrandList(result.data.content)
+        setBrandList(result.data.content);
+        let firstBrand = result.data.content[0];
+        setActiveBrand(firstBrand);
+        setActiveBranch(firstBrand.lstCumRap[0]);
+        console.log("result", result);
     }
 
     useEffect(() => {
@@ -48,7 +51,7 @@ const FilmSchedule = function() {
                                             <img src={branchTheater.hinhAnh} alt={branchTheater.tenCumRap}/>
                                             <div className={`${styles.info}`}>
                                                 <h1>{branchTheater.tenCumRap}</h1>
-                                                <h1>{branchTheater.diaChi}</h1>
+                                                <h2>{branchTheater.diaChi}</h2>
                                             </div>
                                         </div>
                                     </li>)

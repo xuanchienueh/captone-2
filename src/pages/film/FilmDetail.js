@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import {manageFilmServices} from "../../services/manageFilmServices";
 import { useParams } from "react-router-dom";
-import styles from "./FilmDetail.module.css"
-import FilmSchedule from "../../components/filmSchedule/FilmSchedule"
+import styles from "./FilmDetail.module.css";
+import FilmDetailSchedule from "./FilmDetailSchedule";
 
 const FilmDetail = function () {
     // [bien, ham set value cho bien] = useState(gia tri ban dau cua bien)
@@ -10,8 +10,8 @@ const FilmDetail = function () {
     let { id } = useParams();
     const loadData = async function() {
         const result = await manageFilmServices.getFilmScheduleService(id);
-        console.log(film);
         setFilm(result.data.content)
+        console.log("result", result.data.content);
     }
 
     useEffect(() => {
@@ -20,9 +20,12 @@ const FilmDetail = function () {
     
 
     if (film === null) {
+        console.log("Không Tìm Thấy Phim");
         return "Không Tìm Thấy Phim";
     } else {
+        console.log("Tìm Thấy Phim");
         return (
+            <>
             <div className={styles.detail} >
                 <div>
                     <img className={styles.photo} src={film.hinhAnh} alt="" height={500} width={500}/>
@@ -39,6 +42,8 @@ const FilmDetail = function () {
                     </div>
                 </div>
             </div>
+            <FilmDetailSchedule film={film}/>
+            </>
         )
     }
 }

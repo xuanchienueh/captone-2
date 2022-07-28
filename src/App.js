@@ -7,6 +7,7 @@ import Profile from "./pages/profile/Profile";
 import Signup from "./pages/signup/Signup";
 import HomeTemplace from "./templaces/homeTemplace/HomeTemplace";
 import FilmDetail from "./pages/film/FilmDetail";
+import CheckOut from "./pages/checkout/CheckOut";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="profile/history" element={<Profile />} />
           <Route path="detail/:id" element={<FilmDetail />} />
+          <Route path="ticketroom/:id"  element={<CheckOut/>} />
         </Route>
 
         <Route path="login" element={<Login />} />
