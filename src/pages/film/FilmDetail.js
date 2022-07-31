@@ -38,6 +38,7 @@ const FilmDetail = function () {
                             <h1>{film.tenPhim}</h1>
                             <h2>Điểm : {film.danhGia} ★ </h2>
                             <p>{film.moTa}</p>
+                            <span><a href={film.trailer}>Link Film : {film.trailer}</a></span>
                         </div>
                     </div>
                 </div>

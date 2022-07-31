@@ -41,6 +41,13 @@ const CheckOut = function () {
 
     }
 
+    // kiểm tra ghế đã đặt hay chưa
+    const isBooking = function (seat) {
+        const idx = bookingSeat.findIndex((ghe) => ghe.stt === seat.stt)
+
+        return idx !== -1;
+    }
+
     useEffect(() => {
         loadData();
       }, [])
@@ -60,7 +67,7 @@ const CheckOut = function () {
                             <div className={`${styles.typeSeat}`}>
                                 {seatList.map(function(item){
                                             return (
-                                            <button className={`${styles[item.loaiGhe]} ${item.taiKhoanNguoiDat === "string" ? "" : styles.daDat}`} 
+                                            <button className={`${styles[item.loaiGhe]} ${item.taiKhoanNguoiDat === "string" ? "" : styles.daDat} ${isBooking(item) ? styles.dangChon : "" }`} 
                                             onClick={() => onBooking(item)}>
                                                 {item.taiKhoanNguoiDat === "string" ? item.stt : "X" }
                                             </button>
@@ -110,7 +117,7 @@ const CheckOut = function () {
                                     </div>
                                 </div>
                             </div>
-                            <button className={`${styles.datVe}`}>Đặt Vé</button>
+                            <button className={`${styles.datVe}`}><a href="/total">Đặt Vé</a></button>
                     </div>
                 </div>    
                 <div className={`${styles.legend}`}>

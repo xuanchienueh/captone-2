@@ -1,0 +1,236 @@
+.ticketBooking {
+    background-image: url(../../../public/img/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 15px;
+}
+
+.container {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    background: #222;
+    opacity: 0.9;
+    border-radius: 10px;
+}
+
+.checkOut {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Đặt ghế */
+.seat {
+    width: 65%;
+    height: auto;
+}
+
+.seat button {
+    width: 35px;
+    border: 1px solid black;
+    border-radius: 6px;
+    flex: 1 0 11%;
+    margin: 5px;
+}
+
+.screen {
+    background: white;
+    height: 50px;
+}
+
+.screen h1 {
+    text-align: center;
+    padding-top: 5px;
+    color: red;
+    font-size: 30px;
+}
+
+.typeSeat {
+    padding-top: 20px;
+    padding-left: 17px;
+}
+
+
+.daDat {
+    background: red !important;
+}
+
+.Vip {
+    background: orange;
+}
+
+.Thuong {
+    background: grey;
+}
+
+.dangChon {
+    background: green;
+}
+
+
+/* Thông tin đặt vé */
+.checkOutInfo {
+    width: 35%;
+    height: 400px;
+    background: white;
+    margin-left: 15px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.nameFilm {
+    display: flex;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+
+.nameFilm img {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.thongTin h1 {
+    color: black;
+    font-size: 25px;
+    font-weight: 900;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.thongTin h2 {
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+    padding-left: 10px;
+}
+
+.thongTin h3 {
+    color: red;
+    font-size: 15px;
+    font-weight: 500;
+    padding-left: 10px;
+}
+
+.thongTin .thoiGian {
+    display: flex;
+}
+
+.thongTin .thoiGian h2 {
+    padding-left: 10px;
+}
+
+.seatInfo {
+    border-bottom: 1px solid black;
+    height: 150px;
+}
+
+.seatInfo h1 {
+    padding-top: 10px;
+    padding-left: 5px;
+    font-weight: 500;
+}
+
+.selectSeat {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.selectSeat h1 {
+    padding: 10px 20px;
+    color: red;
+}
+
+.total {
+    display: flex;
+}
+
+.total h1 {
+    padding-top: 5px;
+    padding-left: 5px;
+    font-weight: 500;
+}
+
+.price {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.price h1 {
+    padding: 10px;
+    padding-left: 50px;
+    color: green;
+    font-size: 40px;
+}
+
+.datVe {
+    position: absolute;
+    padding: 17px 170px;
+    background: orange;
+    top: 340px;
+    left: 8px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+
+/* Chú Thích Ghế */
+.grey {
+    background: grey;
+    height: 15px;
+    width: 50px;
+}
+
+.blue {
+    background: blue;
+    height: 15px;
+    width: 50px;
+}
+
+.orange {
+    background: orange;
+    height: 15px;
+    width: 50px;
+}
+
+.green {
+    background: green;
+    height: 15px;
+    width: 50px;
+}
+
+.red {
+    background: red;
+    height: 15px;
+    width: 50px;
+}
+
+.legend {
+    padding: 20px;
+}
+
+.legend ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.legend li {
+    display: flex;
+    padding-left: 65px;
+    padding-bottom: 10px;
+}
+
+.legend button {
+    border-radius: 10px;
+}
+
+.legend li h1 { 
+    color: white;
+    padding-left: 20px;
+}
+
