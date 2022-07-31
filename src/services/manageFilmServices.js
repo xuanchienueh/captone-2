@@ -15,6 +15,20 @@ class filmServices extends baseServices {
     }
     return this.get(`QuanLyPhim/LayDanhSachPhim?maNhom=${MA_NHOM}`);
   };
+
+  getFilmScheduleService = (id = undefined) => {
+    if (id) {
+      return this.get(`QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${id}`);
+    }
+    return this.get(`QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom${MA_NHOM}`);
+  };
+
+  getCheckOutInfo = (id = undefined) => {
+    if (id) {
+      return this.get(`QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${id}`);
+    }
+    return this.get(`QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu${MA_NHOM}`);
+  };
 }
 
 export const manageFilmServices = new filmServices();

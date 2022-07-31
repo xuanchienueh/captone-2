@@ -1,0 +1,72 @@
+.filmDetail 
+{
+    background-image: url(../../../public/img/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+}
+
+/* Phần Hỉnh Ảnh */
+.detailInfo {
+    display: flex;
+}
+
+.detailLeft {
+    position: relative;
+}
+
+.photo {
+    padding: 40px;
+}
+
+
+
+/* Phần mô tả */
+.content {
+    width: 1100px;
+    height: auto;
+    margin-top: 80px;
+    margin-right: 20px;
+    padding: 40px;
+    background-color: #222;
+    opacity: 0.9;
+    border-radius: 10px;
+}
+
+.content h1
+{
+    color: #fff;
+    font-size: 30px;
+    padding: 10px 0;
+    
+}
+
+.content h2
+{
+    color: yellow;
+    padding-top: 5px;
+    font-size: 30px;
+    
+}
+
+.content h3
+{
+    padding: 20px 0 ;
+    color: yellow;
+    font-size: 25px;
+}
+
+.content p
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: aliceblue;
+    font-size: 15px;
+}
+
+.content span a
+{
+    color: aliceblue;
+    font-size: 15px;
+}
