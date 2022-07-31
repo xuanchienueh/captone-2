@@ -5,8 +5,8 @@ Chiến:
 - Page Login, Sign up, page profile (có chức năng đổi password và info user)
 
 Hảo: 
--Làm trang chi tiết cho từng bộ phim 
--Làm lịch chiếu ở trang home
--Làm trang Checkout. 
+- Làm trang chi tiết cho từng bộ phim 
+- Làm lịch chiếu ở trang home
+- Làm trang Checkout. 
 
 -Phạm : 
