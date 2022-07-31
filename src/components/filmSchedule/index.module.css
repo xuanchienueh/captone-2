@@ -121,6 +121,10 @@
     background: green;
 }
 
+.btn:hover {
+    background: red;
+}
+
 .btn a {
     color: aliceblue;
 }

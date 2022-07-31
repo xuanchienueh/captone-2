@@ -88,7 +88,7 @@ const FilmSchedule = function() {
                                             console.log('filmSchedule', filmSchedule);
                                             return (
                                                 
-                                                    <button className={`${styles.btn}`}><a href={"/detail/" + theaterFilm.maPhim}>{(new Date(filmSchedule.ngayChieuGioChieu).toLocaleTimeString("vi-VI"))}</a> </button>
+                                                <button className={`${styles.btn}`}><a href={"/detail/" + theaterFilm.maPhim}>{(new Date(filmSchedule.ngayChieuGioChieu).toLocaleTimeString("vi-VI"))}</a></button>
                                                 
                                             )
                                         })

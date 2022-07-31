@@ -26,23 +26,23 @@ const FilmDetail = function () {
         console.log("Tìm Thấy Phim");
         return (
             <>
-            <div className={styles.detail} >
-                <div>
-                    <img className={styles.photo} src={film.hinhAnh} alt="" height={500} width={500}/>
-                    <div className={styles.trailer}>
-                        <h1>{film.trailer}</h1>
+            <div className={`${styles.filmDetail}`}>
+                <div className={`${styles.detailInfo}`}>
+                    <div className={`${styles.detailLeft}`}>
+                        <img className={`${styles.photo}`} src={film.hinhAnh} alt="" height={500} width={500}/>
+                        <div className={`${styles.trailer}`}>
+                        </div>
+                    </div>
+                    <div className={`${styles.detailRight}`}>
+                        <div className={`${styles.content}`}>
+                            <h1>{film.tenPhim}</h1>
+                            <h2>Điểm : {film.danhGia} ★ </h2>
+                            <p>{film.moTa}</p>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <div className={styles.content}>
-                        <h1>{film.tenPhim}</h1>
-                        <h2>{film.ngayKhoiChieu}</h2>
-                        <h3>Điểm : {film.danhGia} ★ </h3>
-                        <p>{film.moTa}</p>
-                    </div>
-                </div>
+                <FilmDetailSchedule film={film}/>
             </div>
-            <FilmDetailSchedule film={film}/>
             </>
         )
     }

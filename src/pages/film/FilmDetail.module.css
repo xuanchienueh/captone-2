@@ -1,6 +1,5 @@
-.detail 
+.filmDetail 
 {
-    display: flex;
     background-image: url(../../../public/img/background.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -8,10 +7,22 @@
     
 }
 
+/* Phần Hỉnh Ảnh */
+.detailInfo {
+    display: flex;
+}
+
+.detailLeft {
+    position: relative;
+}
+
 .photo {
     padding: 40px;
 }
 
+
+
+/* Phần mô tả */
 .content {
     width: 1100px;
     height: auto;
