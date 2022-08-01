@@ -9,4 +9,5 @@ Hảo:
 - Làm lịch chiếu ở trang home
 - Làm trang Checkout. 
 
--Phạm : 
+-Phạm Văn Hiệu : làm các trang admin
+( Phạm Văn Hiệu không tham gia trong dự án)
