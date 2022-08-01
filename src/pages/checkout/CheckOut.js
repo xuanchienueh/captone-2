@@ -67,15 +67,16 @@ const CheckOut = function () {
                             <div className={`${styles.typeSeat}`}>
                                 {seatList.map(function(item){
                                             return (
-                                            <button className={`${styles[item.loaiGhe]} ${item.taiKhoanNguoiDat === "string" ? "" : styles.daDat} ${isBooking(item) ? styles.dangChon : "" }`} 
+                                            <button className={`${styles[item.loaiGhe]} 
+                                            ${item.taiKhoanNguoiDat !== null ? styles.daDat : ""} 
+                                            ${isBooking(item) ? styles.dangChon : "" }`} 
                                             onClick={() => onBooking(item)}>
-                                                {item.taiKhoanNguoiDat === "string" ? item.stt : "X" }
+                                                {item.taiKhoanNguoiDat !== null ? "X" : item.stt }
                                             </button>
                                             )
                                         }
                                     )
-                                }
-                            </div>
+                                }                            </div>
                     </div>
                     <div className={`${styles.checkOutInfo}`}>
                             <div>
