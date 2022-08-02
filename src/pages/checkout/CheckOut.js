@@ -22,20 +22,25 @@ const CheckOut = function () {
         const idx = bookingSeat.findIndex((ghe) => ghe.stt === seat.stt)
 
         console.log("idx", idx);
+        // Kiểm tra xem nếu đặt rồi thì hủy chỗ đó đi
         if (idx !== -1) {
             let a = [...bookingSeat]
+            // Hủy cái ghế đã đặt ra khỏi danh sách ghế
             a.splice(idx,1)
 
             setBookingSeat([...a]);
         }
-        else if (seat.taiKhoanNguoiDat === "string") {
+        // Kiểm tra nếu chưa đặt và ghế đó chưa có ai đặt cả
+        else if (seat.daDat !== true) {
 
             const limit = bookingSeat.length
+            // Kiểm tra coi số lượng ghế đã đặt không quá 9 ghế
             if (limit >= 9) {
                 alert("Chỉ đặt tối đa 9 chỗ")
                 return;
             }
 
+            // Thêm ghế mới vào danh sách ghế
             setBookingSeat(bookingSeat => [...bookingSeat, seat]);
         }  
 
@@ -68,10 +73,10 @@ const CheckOut = function () {
                                 {seatList.map(function(item){
                                             return (
                                             <button className={`${styles[item.loaiGhe]} 
-                                            ${item.taiKhoanNguoiDat !== null ? styles.daDat : ""} 
+                                            ${item.daDat === true ? styles.daDat : ""} 
                                             ${isBooking(item) ? styles.dangChon : "" }`} 
                                             onClick={() => onBooking(item)}>
-                                                {item.taiKhoanNguoiDat !== null ? "X" : item.stt }
+                                                {item.daDat === true  ? "X" : item.stt }
                                             </button>
                                             )
                                         }
